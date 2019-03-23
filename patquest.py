@@ -29,6 +29,19 @@ pygame.mixer.music.play(-1)
 
 screen = pygame.display.set_mode((900,700))
 
+class character(object):
+    def __init__(self,x,y,width,height):
+        self.x = x
+        self.y = y
+        self.width = width
+        self.height = height
+        self.vel = 5
+        self.up = False
+        self.down = False
+        self.left = False
+        self.right = False
+        self.walkCount = 0
+
 finished = False # 0 < 10 -> True/ 10<10 -> False
 x = 450-35/2
 y = 650
@@ -50,6 +63,10 @@ treasureImage = treasureImage.convert_alpha()
 enemyImage = pygame.image.load("enemy.png")
 enemyImage = pygame.transform.scale(enemyImage, (35,40))
 enemyImage = enemyImage.convert_alpha()
+
+bulletImage = pygame.image.load("bullet.png")
+bulletImage = pygame.transform.scale(bulletImage, (35,40))
+bulletImage = bulletImage.convert_alpha()
 
 enemyX = 100
 enemyY = 580-40/2
@@ -123,6 +140,8 @@ while finished == False: #While game is not finished
         playerImage = pygame.transform.scale(playerImage, (43,47))
         playerImage = playerImage.convert_alpha()
         x += 5
+    #if pressedKeys[pygame.K_SPACE] == 1
+
     
     #playerImage.clamp_ip(screen_rect)
 
