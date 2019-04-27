@@ -10,27 +10,27 @@ from skimage.transform import resize
 pygame.mixer.pre_init(44100, -16, 2, 2048) 
 pygame.init()
 pygame.mixer.init()
-pygame.mixer.music.load('Main.mp3')
+pygame.mixer.music.load('assets/music/Main.mp3')
 pygame.mixer.music.play(0)
 screen = pygame.display.set_mode((900,700))
 
-up = [pygame.image.load("playerup.png"),pygame.image.load("playerup2.png"),pygame.image.load("playerup3.png"),pygame.image.load("playerup4.png")]
-down = [pygame.image.load("playerdown.png"),pygame.image.load("playerdown2.png"),pygame.image.load("playerdown4.png"),pygame.image.load("playerdown3.png")]
-left = [pygame.image.load("playerleft.png"),pygame.image.load("playerleft2.png"),pygame.image.load("playerleft4.png"),pygame.image.load("playerleft3.png")]
-right = [pygame.image.load("playerright.png"),pygame.image.load("playerright2.png"),pygame.image.load("playerright3.png"),pygame.image.load("playerright4.png")]
+up = [pygame.image.load("assets/img/playerup.png"),pygame.image.load("assets/img/playerup2.png"),pygame.image.load("assets/img/playerup3.png"),pygame.image.load("assets/img/playerup4.png")]
+down = [pygame.image.load("assets/img/playerdown.png"),pygame.image.load("assets/img/playerdown2.png"),pygame.image.load("assets/img/playerdown4.png"),pygame.image.load("assets/img/playerdown3.png")]
+left = [pygame.image.load("assets/img/playerleft.png"),pygame.image.load("assets/img/playerleft2.png"),pygame.image.load("assets/img/playerleft4.png"),pygame.image.load("assets/img/playerleft3.png")]
+right = [pygame.image.load("assets/img/playerright.png"),pygame.image.load("assets/img/playerright2.png"),pygame.image.load("assets/img/playerright3.png"),pygame.image.load("assets/img/playerright4.png")]
 
-up = [pygame.image.load("playerup.png"),pygame.image.load("playerup2.png"),pygame.image.load("playerup3.png"),pygame.image.load("playerup4.png")]
-stubbsdown = [pygame.image.load("stubbsdown1.png"),pygame.image.load("stubbsdown1.png"),pygame.image.load("stubbsdown1.png"),pygame.image.load("stubbsdown1.png")]
-left = [pygame.image.load("playerleft.png"),pygame.image.load("playerleft2.png"),pygame.image.load("playerleft4.png"),pygame.image.load("playerleft3.png")]
-right = [pygame.image.load("playerright.png"),pygame.image.load("playerright2.png"),pygame.image.load("playerright3.png"),pygame.image.load("playerright4.png")]
+up = [pygame.image.load("assets/img/playerup.png"),pygame.image.load("assets/img/playerup2.png"),pygame.image.load("assets/img/playerup3.png"),pygame.image.load("assets/img/playerup4.png")]
+stubbsdown = [pygame.image.load("assets/img/stubbsdown1.png"),pygame.image.load("assets/img/stubbsdown1.png"),pygame.image.load("assets/img/stubbsdown1.png"),pygame.image.load("assets/img/stubbsdown1.png")]
+left = [pygame.image.load("assets/img/playerleft.png"),pygame.image.load("assets/img/playerleft2.png"),pygame.image.load("assets/img/playerleft4.png"),pygame.image.load("assets/img/playerleft3.png")]
+right = [pygame.image.load("assets/img/playerright.png"),pygame.image.load("assets/img/playerright2.png"),pygame.image.load("assets/img/playerright3.png"),pygame.image.load("assets/img/playerright4.png")]
 
-bg = pygame.image.load("background.png")
+bg = pygame.image.load("assets/img/background.png")
 bg = pygame.transform.scale(bg, (900,700))
 
-bg2 = pygame.image.load("background3.png")
+bg2 = pygame.image.load("assets/img/background3.png")
 bg2 = pygame.transform.scale(bg2, (900,700))
 
-items = [pygame.image.load("Pepper.png"),pygame.image.load("Cheese.png"),pygame.image.load("Bread.png"),pygame.image.load("steak.png"),pygame.image.load("Door.png"), pygame.image.load("DoorOpen.png")]
+items = [pygame.image.load("assets/img/Pepper.png"),pygame.image.load("assets/img/Cheese.png"),pygame.image.load("assets/img/Bread.png"),pygame.image.load("assets/img/steak.png"),pygame.image.load("assets/img/Door.png"), pygame.image.load("assets/img/DoorOpen.png")]
 #treasure = resize(treasure, (64, 64), anti_aliasing=True)
 
 
@@ -388,7 +388,7 @@ while finished == False: #While game is not finished
             Door.open = True
             collisionDoor,x,y,x2,y2 = checkCollision(pat.x,pat.y,Door.x,Door.y)
             if collisionDoor == True:
-                effect = pygame.mixer.Sound('Select.wav')
+                effect = pygame.mixer.Sound('assets/sounds/Select.wav')
                 effect.play()
                 level += 1
                 fade(900,700)
@@ -412,9 +412,9 @@ while finished == False: #While game is not finished
                     enemies[2].y = randrange(100, 595)
                     enemies[2].x = randrange(100, 595)
                 if level >= 4:
-                    effect = pygame.mixer.Sound('Shields.wav')
+                    effect = pygame.mixer.Sound('assets/sounds/Shields.wav')
                     effect.play()
-                    pygame.mixer.music.load('Boss.mp3')
+                    pygame.mixer.music.load('assets/music/Boss.mp3')
                     pygame.mixer.music.play(0)
                 frame.tick(1)
                 pat.items = []  
@@ -467,7 +467,7 @@ while finished == False: #While game is not finished
 
     collisionWell,x,y,x2,y2 = checkCollision(pat.x,pat.y,pepper.x,pepper.y)
     if collisionWell == True and pepper.collected == False:
-        effect = pygame.mixer.Sound('Select.wav')
+        effect = pygame.mixer.Sound('assets/sounds/Select.wav')
         effect.play()
         pygame.display.flip()
         pat.items.append("pepper")
@@ -477,7 +477,7 @@ while finished == False: #While game is not finished
 
     collisionPot,x,y,x2,y2 = checkCollision(pat.x,pat.y,cheese.x,cheese.y)
     if collisionPot == True and cheese.collected == False:
-        effect = pygame.mixer.Sound('Select.wav')
+        effect = pygame.mixer.Sound('assets/sounds/Select.wav')
         effect.play()
         pygame.display.flip()
         pat.items.append("cheese")
@@ -487,7 +487,7 @@ while finished == False: #While game is not finished
 
     collisionTreasure,x,y,x2,y2 = checkCollision(pat.x,pat.y,bread.x,bread.y)
     if collisionTreasure == True and bread.collected == False:
-        effect = pygame.mixer.Sound('Select.wav')
+        effect = pygame.mixer.Sound('assets/sounds/Select.wav')
         effect.play()
         pygame.display.flip()
         pat.items.append("bread")  
@@ -497,7 +497,7 @@ while finished == False: #While game is not finished
 
     collisionSteak,x,y,x2,y2 = checkCollision(pat.x,pat.y,steak.x,steak.y)
     if collisionSteak == True and steak.collected == False:
-        effect = pygame.mixer.Sound('Select.wav')
+        effect = pygame.mixer.Sound('assets/sounds/Select.wav')
         effect.play()
         pygame.display.flip()
         pat.items.append("steak")  
@@ -507,7 +507,7 @@ while finished == False: #While game is not finished
 
     collisionenemies,x,y,x2,y2 = checkCollision(pat.x,pat.y,enemies[0].x,enemies[0].y)
     if collisionenemies == True:
-        effect = pygame.mixer.Sound('Damage.wav')
+        effect = pygame.mixer.Sound('assets/sounds/Damage.wav')
         effect.play()
         pygame.display.flip()
         enemies[0].y = randrange(100, 595)
@@ -520,7 +520,7 @@ while finished == False: #While game is not finished
 
     collisionenemies2,x,y,x2,y2 = checkCollision(pat.x,pat.y,enemies[1].x,enemies[1].y)
     if collisionenemies2 == True:
-        effect = pygame.mixer.Sound('Damage.wav')
+        effect = pygame.mixer.Sound('assets/sounds/Damage.wav')
         effect.play()
         pygame.display.flip()
         enemies[1].y = randrange(100, 595)
@@ -533,7 +533,7 @@ while finished == False: #While game is not finished
 
     collisionenemies3,x,y,x2,y2 = checkCollision(pat.x,pat.y,enemies[2].x,enemies[2].y)
     if collisionenemies3 == True:
-        effect = pygame.mixer.Sound('Damage.wav')
+        effect = pygame.mixer.Sound('assets/sounds/Damage.wav')
         effect.play()
         pygame.display.flip()
         enemies[2].y = randrange(100, 595)
@@ -555,7 +555,7 @@ while finished == False: #While game is not finished
         textWin = font.render("Game Over!",True,(0,0,0))
         screen.blit(textWin,(450 - textWin.get_width()/2,350 - textWin.get_height()/2))
         pygame.display.flip()
-        pygame.mixer.music.load('Game Over.mp3')
+        pygame.mixer.music.load('assets/music/Game Over.mp3')
         pygame.mixer.music.play(0)
         frame.tick(1) 
         finished = True

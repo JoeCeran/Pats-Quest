@@ -10,7 +10,7 @@ screen = pygame.display.set_mode((900,700))
 pygame.mixer.pre_init(44100, -16, 2, 2048) 
 pygame.init()
 pygame.mixer.init()
-pygame.mixer.music.load('title.mp3')
+pygame.mixer.music.load('assets/music/title.mp3')
 pygame.mixer.music.play(0)
 
 title = pygame.image.load("assets/img/title.png").convert()
@@ -39,7 +39,7 @@ while finished == False: #While game is not finished
     pressedKeys = pygame.key.get_pressed()
     
     if pressedKeys[pygame.K_SPACE]:
-        effect = pygame.mixer.Sound('Select.wav')
+        effect = pygame.mixer.Sound('assets/sounds/Select.wav')
         effect.play()
         pygame.mixer.music.fadeout(500)
         fade(900,700)
